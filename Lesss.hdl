@@ -1,0 +1,12 @@
+CHIP Lesss 
+{
+    IN a[16], b[16];
+    OUT out;
+
+    PARTS:
+    Not16(in = b, out = notB);
+	Inc16(in = notB, out = negB);
+	Add16(a = a, b = negB, out[15] = rez, out[0..14] = drop);
+	Mux(a = false, b = true, sel = rez, out = out);
+  
+}
