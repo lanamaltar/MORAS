@@ -1,0 +1,56 @@
+CHIP Clz
+{
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Or(a = in[15], b = false, out = sel1);
+    Or(a = in[14], b = sel1,   out = sel2);
+    Or(a = in[13], b = sel2,   out = sel3);
+    Or(a = in[12], b = sel3,   out = sel4);
+    Or(a = in[11], b = sel4,   out = sel5);
+    Or(a = in[10], b = sel5,   out = sel6);
+    Or(a = in[9],  b = sel6,   out = sel7);
+    Or(a = in[8],  b = sel7,   out = sel8);
+    Or(a = in[7],  b = sel8,   out = sel9);
+    Or(a = in[6],  b = sel9,   out = sel10);
+    Or(a = in[5],  b = sel10,  out = sel11);
+    Or(a = in[4],  b = sel11,  out = sel12);
+    Or(a = in[3],  b = sel12,  out = sel13);
+    Or(a = in[2],  b = sel13,  out = sel14);
+    Or(a = in[1],  b = sel14,  out = sel15);
+    Or(a = in[0],  b = sel15,  out = sel16);
+
+    Mux(a = true, b = false, sel = sel1,  out = mux1);
+    Mux(a = true, b = false, sel = sel2,  out = mux2);
+    Mux(a = true, b = false, sel = sel3,  out = mux3);
+    Mux(a = true, b = false, sel = sel4,  out = mux4);
+    Mux(a = true, b = false, sel = sel5,  out = mux5);
+    Mux(a = true, b = false, sel = sel6,  out = mux6);
+    Mux(a = true, b = false, sel = sel7,  out = mux7);
+    Mux(a = true, b = false, sel = sel8,  out = mux8);
+    Mux(a = true, b = false, sel = sel9,  out = mux9);
+    Mux(a = true, b = false, sel = sel10, out = mux10);
+    Mux(a = true, b = false, sel = sel11, out = mux11);
+    Mux(a = true, b = false, sel = sel12, out = mux12);
+    Mux(a = true, b = false, sel = sel13, out = mux13);
+    Mux(a = true, b = false, sel = sel14, out = mux14);
+    Mux(a = true, b = false, sel = sel15, out = mux15);
+    Mux(a = true, b = false, sel = sel16, out = mux16);
+
+    Add16(a[0] = mux1, b[0] = mux2,  out = sum1);
+    Add16(a = sum1,    b[0] = mux3,  out = sum2);
+    Add16(a = sum2,    b[0] = mux4,  out = sum3);
+    Add16(a = sum3,    b[0] = mux5,  out = sum4);
+    Add16(a = sum4,    b[0] = mux6,  out = sum5);
+    Add16(a = sum5,    b[0] = mux7,  out = sum6);
+    Add16(a = sum6,    b[0] = mux8,  out = sum7);
+    Add16(a = sum7,    b[0] = mux9,  out = sum8);
+    Add16(a = sum8,    b[0] = mux10, out = sum9);
+    Add16(a = sum9,    b[0] = mux11, out = sum10);
+    Add16(a = sum10,   b[0] = mux12, out = sum11);
+    Add16(a = sum11,   b[0] = mux13, out = sum12);
+    Add16(a = sum12,   b[0] = mux14, out = sum13);
+    Add16(a = sum13,   b[0] = mux15, out = sum14);
+    Add16(a = sum14,   b[0] = mux16, out = out);
+}
