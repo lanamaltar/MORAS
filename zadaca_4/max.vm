@@ -1,0 +1,30 @@
+function max 3
+	push argument 0
+	push argument 1  //a>b
+	gt
+	push argument 0  //a>c
+	push argument 2
+	gt
+	and
+	if-goto case_one
+	push argument 1  //b>a
+	push argument 0
+	gt
+	push argument 1   //b>c
+	push argument 2
+	gt
+	and
+	if-goto case_two
+	goto case_three   //c>a && c>b
+
+label case_one
+	push argument 0
+	return
+
+label case_two
+	push argument 1
+	return
+
+label case_three
+	push argument 2
+	return
